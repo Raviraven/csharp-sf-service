@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.API", "sfservice.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.Models", "sfservice.Models\sfservice.Models.csproj", "{F484C04C-0179-4CE5-8F34-4AD893C67A3E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C2D89D81-DD23-4B4F-819E-89078222A64A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.APITests", "sfservice.APITests\sfservice.APITests.csproj", "{5F3CB6F3-4806-4DEC-BE01-470880179520}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{F484C04C-0179-4CE5-8F34-4AD893C67A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F484C04C-0179-4CE5-8F34-4AD893C67A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F484C04C-0179-4CE5-8F34-4AD893C67A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F3CB6F3-4806-4DEC-BE01-470880179520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F3CB6F3-4806-4DEC-BE01-470880179520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F3CB6F3-4806-4DEC-BE01-470880179520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F3CB6F3-4806-4DEC-BE01-470880179520}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5F3CB6F3-4806-4DEC-BE01-470880179520} = {C2D89D81-DD23-4B4F-819E-89078222A64A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4DA6D02-91C3-41D0-8B63-A8E09DC6F8A6}

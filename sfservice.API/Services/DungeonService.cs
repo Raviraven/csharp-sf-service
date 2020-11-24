@@ -14,12 +14,12 @@ namespace sfservice.API.Services
     {
         public List<Dungeon> GetDungeons()
         {
-            return readDungeonCSVFile();
+            string location = "D:\\Projekty\\csharp\\sf-service\\dungeonsPL.csv";
+            return readDungeonCSVFile(location);
         }
 
-        private List<Dungeon> readDungeonCSVFile()
+        private List<Dungeon> readDungeonCSVFile(string location)
         {
-            string location = "D:\\Projekty\\csharp\\sf-service\\dungeonsPL.csv";
             try
             {
                 using (var reader = new StreamReader(location, Encoding.Default))

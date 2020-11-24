@@ -4,3 +4,5 @@ sfservice.API/obj/
 /sfservice.Models/obj
 /sfservice.Models/bin
 /sfservice.API/sfservice.API.csproj.user
+/sfservice.APITests/bin
+/sfservice.APITests/obj
