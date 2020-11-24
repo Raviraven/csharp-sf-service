@@ -42,5 +42,23 @@ namespace sfservice.Models.CSVMapperModels
 
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(DungeonNumber);
+            hash.Add(Level);
+            hash.Add(MonsterName);
+            hash.Add(MonsterLevel);
+            hash.Add(Class);
+            hash.Add(Strength);
+            hash.Add(Dexterity);
+            hash.Add(Intelligence);
+            hash.Add(Constitution);
+            hash.Add(Luck);
+            hash.Add(HitPoints);
+            hash.Add(Experience);
+            return hash.ToHashCode();
+        }
     }
 }
