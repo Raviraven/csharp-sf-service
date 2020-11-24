@@ -24,7 +24,7 @@ namespace sfservice.API.Services
 
         public List<Dungeon> GetDungeons()
         {
-            var location = $"{_config.GetSection("CSVFilesLocation").Value}\\dungeonsPL.csv";
+            var location = $"{_config["CSVFilesLocation"]}\\dungeonsPL.csv";
             return Helpers.CsvHelper.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
         }
 
