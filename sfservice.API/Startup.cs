@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using sfservice.API.Services;
 
 namespace sfservice.API
 {
@@ -26,6 +27,8 @@ namespace sfservice.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddTransient<IDungeonService, DungeonService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

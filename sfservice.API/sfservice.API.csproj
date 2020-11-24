@@ -8,5 +8,9 @@
     <PackageReference Include="CsvHelper" Version="16.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\sfservice.Models\sfservice.Models.csproj" />
+  </ItemGroup>
+
 
 </Project>
