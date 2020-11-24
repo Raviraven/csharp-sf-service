@@ -1,3 +1,5 @@
 .vs/
 sfservice.API/bin/
 sfservice.API/obj/
+/sfservice.Models/obj
+/sfservice.Models/bin
