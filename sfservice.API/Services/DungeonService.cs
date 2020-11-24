@@ -1,4 +1,6 @@
 ﻿using CsvHelper;
+using CsvHelper.Configuration;
+using Microsoft.Extensions.Configuration;
 using sfservice.API.Mappers;
 using sfservice.Models.CSVMapperModels;
 using System;
@@ -7,33 +9,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using sfservice.API.Helpers;
 
 namespace sfservice.API.Services
 {
     public class DungeonService : IDungeonService
     {
-        public List<Dungeon> GetDungeons()
+        private readonly IConfiguration _config;
+
+        public DungeonService(IConfiguration config)
         {
-            string location = "D:\\Projekty\\csharp\\sf-service\\dungeonsPL.csv";
-            return readDungeonCSVFile(location);
+            _config = config;
         }
 
-        private List<Dungeon> readDungeonCSVFile(string location)
+        public List<Dungeon> GetDungeons()
         {
-            try
-            {
-                using (var reader = new StreamReader(location, Encoding.Default))
-                using (var csv = new CsvReader(reader, new System.Globalization.CultureInfo("pl-PL")))
-                {
-                    csv.Configuration.RegisterClassMap<DungeonMap>();
-                    var records = csv.GetRecords<Dungeon>().ToList();
-                    return records;
-                }
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            var location = $"{_config.GetSection("CSVFilesLocation").Value}\\dungeonsPL.csv";
+            return Helpers.CsvHelper.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
         }
 
     }
