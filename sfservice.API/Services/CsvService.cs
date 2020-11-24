@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sfservice.API.Helpers
+namespace sfservice.API.Services
 {
-    public static class CsvHelper
+    public class CsvService : ICsvService
     {
-        public static List<T> ReadRecordsFromCSVFile<T, M>(string location)
-            where M : ClassMap<T>
+        public  List<Type> ReadRecordsFromCSVFile<Type, TypeMapper>(string location)
+            where TypeMapper : ClassMap<Type>
         {
             try
             {
                 using (var reader = new StreamReader(location, Encoding.Default))
                 using (var csv = new CsvReader(reader, new System.Globalization.CultureInfo("pl-PL")))
                 {
-                    csv.Configuration.RegisterClassMap<M>();
-                    var records = csv.GetRecords<T>().ToList();
+                    csv.Configuration.RegisterClassMap<TypeMapper>();
+                    var records = csv.GetRecords<Type>().ToList();
                     return records;
                 }
             }

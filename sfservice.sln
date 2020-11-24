@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.API", "sfservice.API\sfservice.API.csproj", "{76935AFA-DA05-4651-A26A-D03ACDDC2494}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.Models", "sfservice.Models\sfservice.Models.csproj", "{F484C04C-0179-4CE5-8F34-4AD893C67A3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.Models", "sfservice.Models\sfservice.Models.csproj", "{F484C04C-0179-4CE5-8F34-4AD893C67A3E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C2D89D81-DD23-4B4F-819E-89078222A64A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.APITests", "sfservice.APITests\sfservice.APITests.csproj", "{5F3CB6F3-4806-4DEC-BE01-470880179520}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.APITests", "sfservice.APITests\sfservice.APITests.csproj", "{5F3CB6F3-4806-4DEC-BE01-470880179520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

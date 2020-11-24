@@ -28,6 +28,7 @@ namespace sfservice.API
         {
             services.AddControllers();
 
+            services.AddTransient<ICsvService, CsvService>();
             services.AddTransient<IDungeonService, DungeonService>();
         }
 

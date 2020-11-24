@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using sfservice.API.Helpers;
+using Microsoft.AspNetCore.Components;
 
 namespace sfservice.API.Services
 {
@@ -17,15 +17,40 @@ namespace sfservice.API.Services
     {
         private readonly IConfiguration _config;
 
+        [Inject]
+        private ICsvService csvService { get; set; }
+
         public DungeonService(IConfiguration config)
         {
             _config = config;
         }
 
+        public DungeonService(IConfiguration config, ICsvService csvService)
+        {
+            _config = config;
+            this.csvService = csvService;
+        }
+
         public List<Dungeon> GetDungeons()
         {
             var location = $"{_config["CSVFilesLocation"]}\\dungeonsPL.csv";
-            return Helpers.CsvHelper.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
+            return csvService.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
+        }
+
+        public List<Dungeon> GetDungeon(int dungeonNumber)
+        {
+            var location = $"{_config["CSVFilesLocation"]}\\dungeonsPL.csv";
+            var allDungeons = csvService.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
+
+            return allDungeons.Where(d => d.DungeonNumber == dungeonNumber).ToList();
+        }
+
+        public Dungeon GetDungeonMonsterById(int dungeonNumber, int monsterNumber)
+        {
+            var location = $"{_config["CSVFilesLocation"]}\\dungeonsPL.csv";
+            var allDungeons = csvService.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
+
+            return allDungeons.FirstOrDefault(d => d.DungeonNumber == dungeonNumber && d.Level == monsterNumber);
         }
 
     }

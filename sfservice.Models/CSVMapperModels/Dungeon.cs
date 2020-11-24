@@ -20,5 +20,27 @@ namespace sfservice.Models.CSVMapperModels
         public string HitPoints { get; set; }
         //double?
         public string Experience { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var objDungeon = (Dungeon)obj;
+
+            if (objDungeon == null) return false;
+
+            if (objDungeon.DungeonNumber == this.DungeonNumber
+                && objDungeon.Level == this.Level
+                && objDungeon.MonsterName.Equals(this.MonsterName)
+                && objDungeon.MonsterLevel == this.MonsterLevel
+                && objDungeon.Class.Equals(this.Class)
+                && objDungeon.Strength.Equals(this.Strength)
+                && objDungeon.Dexterity.Equals(this.Dexterity)
+                && objDungeon.Intelligence.Equals(this.Intelligence)
+                && objDungeon.Constitution.Equals(this.Constitution)
+                && objDungeon.Luck.Equals(this.Luck)
+                && objDungeon.HitPoints.Equals(this.HitPoints)
+                && objDungeon.Experience.Equals(this.Experience)) return true;
+
+            return false;
+        }
     }
 }
