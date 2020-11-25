@@ -8,3 +8,5 @@ sfservice.API/obj/
 /sfservice.APITests/obj
 /sfservice.UI/bin
 /sfservice.UI/obj
+/sfservice.UI/web.config
+/sfservice.API/web.config
