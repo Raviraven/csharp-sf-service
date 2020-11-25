@@ -1,0 +1,24 @@
+﻿@inherits DungeonMonsterSelectionBase
+
+@using sfservice.UI.Components.DungeonMonsterDetails
+
+<div>
+    @if (DungeonMonsters != null)
+    { 
+        <EditForm EditContext="EditContext">
+            <InputSelect @bind-Value="@MonsterNumber" @onclick="(e => SetMonsterDetails())">
+                <option></option>
+                @foreach(var monster in DungeonMonsters)
+                {
+                    <option value="@monster.Level">@monster.Level - @monster.MonsterName</option>
+                }
+            </InputSelect>
+        </EditForm>
+
+
+        @if (!string.IsNullOrEmpty(MonsterNumber))
+        {
+          <DungeonMonsterDetails DungeonNumber="@DungeonNumber" DungeonMonsterNumber="@MonsterNumber" />
+        }
+    }
+</div>

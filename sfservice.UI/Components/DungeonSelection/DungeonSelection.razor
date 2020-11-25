@@ -1,0 +1,25 @@
+﻿@inherits DungeonSelectionBase
+
+@using sfservice.UI.Components.DungeonMonsterSelection
+
+<div>
+    <EditForm EditContext="EditContext">
+        <InputSelect @bind-Value="@ChosenDungeonId">
+            <option value="0"></option>
+            @foreach (var dungeon in Dungeons)
+            {
+                <option value="@dungeon.Number">@dungeon.Number - @dungeon.Name</option>
+            }
+        </InputSelect>
+
+    </EditForm>
+
+
+    @if (!string.IsNullOrEmpty(ChosenDungeonId))
+    {
+        <p>Chosen dungeon: @ChosenDungeonId</p>
+        <DungeonMonsterSelection DungeonNumber="@ChosenDungeonId" />
+    }
+
+
+</div>

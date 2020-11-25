@@ -9,5 +9,7 @@ namespace sfservice.UI.API_Services
     public interface IDungeonsApiService
     {
         Task<List<Dungeon>> Get();
+        Task<List<DungeonMonster>> GetDungeonWithMonstersById(string dungeonId);
+        Task<DungeonMonster> GetMonsterFromDungeonById(string dungeonId, string monsterId);
     }
 }

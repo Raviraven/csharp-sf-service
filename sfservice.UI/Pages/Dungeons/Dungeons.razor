@@ -2,6 +2,9 @@
 
 @inherits DungeonsBase
 
+@using sfservice.UI.Components.DungeonSelection
+@using sfservice.UI.Components.DungeonMonsterSelection
+
 <h3>Dungeons List</h3>
 
 @if (DungeonsList == null)
@@ -10,11 +13,6 @@
 }
 else
 {
-    <div>
-        @foreach (var dungeon in DungeonsList)
-        {
-            <p>@dungeon.Number</p>
-            <p><b>@dungeon.Name</b></p>
-        }
-    </div>
+    <DungeonSelection Dungeons="@DungeonsList" />
+
 }

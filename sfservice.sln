@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C2D89D81
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.APITests", "sfservice.APITests\sfservice.APITests.csproj", "{5F3CB6F3-4806-4DEC-BE01-470880179520}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.UI", "sfservice.UI\sfservice.UI.csproj", "{0CC1A2A0-3CAC-4965-8F68-6E7D269CC820}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.UI", "sfservice.UI\sfservice.UI.csproj", "{0CC1A2A0-3CAC-4965-8F68-6E7D269CC820}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

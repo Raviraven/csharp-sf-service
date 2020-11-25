@@ -18,14 +18,14 @@ namespace sfservice.UI.API_Services
         public DungeonsApiService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            baseUrl = _httpClient.BaseAddress.AbsoluteUri;
+            baseUrl = $"{_httpClient.BaseAddress.AbsoluteUri}/dungeons";
         }
 
         public async Task<List<Dungeon>> Get()
         {
             try
             {
-                using (var response = await _httpClient.GetAsync($"{baseUrl}/dungeons"))
+                using (var response = await _httpClient.GetAsync($"{baseUrl}"))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -42,6 +42,58 @@ namespace sfservice.UI.API_Services
                 }
             }
             catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task<List<DungeonMonster>> GetDungeonWithMonstersById(string dungeonId)
+        {
+            try
+            {
+                using (var response = await _httpClient.GetAsync($"{baseUrl}/{dungeonId}"))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        using (var stream = await response.Content.ReadAsStreamAsync())
+                        {
+                            return await JsonSerializer.DeserializeAsync<List<DungeonMonster>>
+                                (stream, new JsonSerializerOptions { PropertyNameCaseInsensitive = true, IgnoreNullValues = true });
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task<DungeonMonster> GetMonsterFromDungeonById(string dungeonId, string monsterId)
+        {
+            try
+            {
+                using (var response = await _httpClient.GetAsync($"{baseUrl}/{dungeonId}/{monsterId}"))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        using (var stream = await response.Content.ReadAsStreamAsync())
+                        {
+                            return await JsonSerializer.DeserializeAsync<DungeonMonster>
+                                (stream, new JsonSerializerOptions { PropertyNameCaseInsensitive = true, IgnoreNullValues = true });
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception e)
             {
                 throw e;
             }
