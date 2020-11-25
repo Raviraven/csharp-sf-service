@@ -7,22 +7,12 @@ using System.Threading.Tasks;
 
 namespace sfservice.API.Mappers
 {
-    public sealed class DungeonMap : ClassMap<Dungeon>
+    public class DungeonMap : ClassMap<Dungeon>
     {
         public DungeonMap()
         {
-            Map(n => n.DungeonNumber).Name("D");
-            Map(n => n.Level).Name("Level");
-            Map(n => n.MonsterName).Name("Opponent");
-            Map(n => n.MonsterLevel).Name("Level");
-            Map(n => n.Class).Name("Class");
-            Map(n => n.Strength).Name("Strength");
-            Map(n => n.Dexterity).Name("Dexterity");
-            Map(n => n.Intelligence).Name("Intelligence");
-            Map(n => n.Constitution).Name("Constitution");
-            Map(n => n.Luck).Name("Luck");
-            Map(n => n.HitPoints).Name("Hit Points");
-            Map(n => n.Experience).Name("Experience");
+            Map(n => n.Number).Name("Id");
+            Map(n => n.Name).Name("Name");
         }
     }
 }

@@ -19,6 +19,7 @@ namespace sfservice.API.Services
 
         [Inject]
         private ICsvService csvService { get; set; }
+        private string baseCsvFilesLocation { get; set; }
 
         public DungeonService(IConfiguration config)
         {
@@ -29,29 +30,39 @@ namespace sfservice.API.Services
         {
             _config = config;
             this.csvService = csvService;
+            baseCsvFilesLocation = _config["CSVFilesLocation"];
         }
 
-        public List<Dungeon> GetDungeons()
+        public List<Dungeon> Get()
         {
-            var location = $"{_config["CSVFilesLocation"]}\\dungeonsPL.csv";
+            string location = $"{baseCsvFilesLocation}\\dungeonsPL.csv";
             return csvService.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
         }
 
-        public List<Dungeon> GetDungeon(int dungeonNumber)
+        public List<DungeonMonster> GetAllDungeonMonsters()
         {
-            var location = $"{_config["CSVFilesLocation"]}\\dungeonsPL.csv";
-            var allDungeons = csvService.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
+            var location = $"{_config["CSVFilesLocation"]}\\dungeonMonstersPL.csv";
+            return csvService.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(location);
+        }
+
+        public List<DungeonMonster> GetDungeonMonstersById(int dungeonNumber)
+        {
+            var location = $"{_config["CSVFilesLocation"]}\\dungeonMonstersPL.csv";
+            var allDungeons = csvService.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(location);
 
             return allDungeons.Where(d => d.DungeonNumber == dungeonNumber).ToList();
         }
 
-        public Dungeon GetDungeonMonsterById(int dungeonNumber, int monsterNumber)
+        public DungeonMonster GetDungeonMonsterById(int dungeonNumber, int monsterNumber)
         {
-            var location = $"{_config["CSVFilesLocation"]}\\dungeonsPL.csv";
-            var allDungeons = csvService.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(location);
+            var location = $"{_config["CSVFilesLocation"]}\\dungeonMonstersPL.csv";
+            var allDungeons = csvService.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(location);
 
             return allDungeons.FirstOrDefault(d => d.DungeonNumber == dungeonNumber && d.Level == monsterNumber);
         }
 
+       
+
+        //public 
     }
 }

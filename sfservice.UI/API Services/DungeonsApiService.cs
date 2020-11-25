@@ -11,7 +11,7 @@ namespace sfservice.UI.API_Services
 {
     public class DungeonsApiService : IDungeonsApiService
     {
-        [Inject]
+        //[Inject]
         private HttpClient _httpClient { get; set; }
         private string baseUrl = "";
 

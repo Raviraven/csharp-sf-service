@@ -27,17 +27,23 @@ namespace sfservice.API.Controllers
         [HttpGet]
         public List<Dungeon> Get()
         {
-            return _dungeonService.GetDungeons();
+            return _dungeonService.Get();
         }
 
-        [HttpGet("{id}")]
-        public List<Dungeon> GetDungeonById(int id)
+        [HttpGet("all")]
+        public List<DungeonMonster> GetDungeonMonsters()
         {
-            return _dungeonService.GetDungeon(id);
+            return _dungeonService.GetAllDungeonMonsters();
+        }
+
+        [HttpGet("{dungeonId}")]
+        public List<DungeonMonster> GetDungeonMonsterById(int dungeonId)
+        {
+            return _dungeonService.GetDungeonMonstersById(dungeonId);
         }
 
         [HttpGet("{dungeonNumber}/{monsterNumber}")]
-        public Dungeon GetDungeonMonster(int dungeonNumber, int monsterNumber)
+        public DungeonMonster GetDungeonMonster(int dungeonNumber, int monsterNumber)
         {
             return _dungeonService.GetDungeonMonsterById(dungeonNumber, monsterNumber);
         }

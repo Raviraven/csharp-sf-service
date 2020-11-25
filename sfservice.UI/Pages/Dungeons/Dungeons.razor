@@ -10,21 +10,11 @@
 }
 else
 {
-    <ul>
+    <div>
         @foreach (var dungeon in DungeonsList)
         {
-            <li> @dungeon.DungeonNumber</li>
-            <li> @dungeon.Level</li>
-            <li> @dungeon.MonsterName</li>
-            <li> @dungeon.MonsterLevel</li>
-            <li> @dungeon.Class</li>
-            <li> @dungeon.Strength</li>
-            <li> @dungeon.Dexterity</li>
-            <li> @dungeon.Intelligence</li>
-            <li> @dungeon.Constitution</li>
-            <li> @dungeon.Luck</li>
-            <li> @dungeon.HitPoints</li>
-            <li> @dungeon.Experience</li>
+            <p>@dungeon.Number</p>
+            <p><b>@dungeon.Name</b></p>
         }
-    </ul>
+    </div>
 }

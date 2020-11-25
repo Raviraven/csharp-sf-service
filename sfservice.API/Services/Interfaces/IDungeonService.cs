@@ -8,8 +8,10 @@ namespace sfservice.API.Services
 {
     public interface IDungeonService
     {
-        List<Dungeon> GetDungeons();
-        List<Dungeon> GetDungeon(int dungeonNumber);
-        Dungeon GetDungeonMonsterById(int dungeonNumber, int monsterNumber);
+        List<Dungeon> Get();
+
+        List<DungeonMonster> GetAllDungeonMonsters();
+        List<DungeonMonster> GetDungeonMonstersById(int dungeonNumber);
+        DungeonMonster GetDungeonMonsterById(int dungeonNumber, int monsterNumber);
     }
 }

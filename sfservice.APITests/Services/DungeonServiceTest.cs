@@ -69,7 +69,7 @@ namespace sfservice.APITests.Services
 
             configurationMock.Setup(n => n["CSVFilesLocation"]).Returns(dir);
             var service = new DungeonService(configurationMock.Object, new CsvService());
-            var results = service.GetDungeons();
+            var results = service.GetAllDungeonMonsters();
 
             Assert.NotNull(results);
             Assert.True(results.Count > 0);
@@ -80,8 +80,8 @@ namespace sfservice.APITests.Services
         {
             var csvServiceMoq = new Mock<ICsvService>();
             var configurationMock = new Mock<IConfiguration>();
-            var dungeonList = new List<Dungeon>();
-            dungeonList.Add(new Dungeon
+            var dungeonList = new List<DungeonMonster>();
+            dungeonList.Add(new DungeonMonster
             {
                 Class = "sorc",
                 Constitution = "123",
@@ -98,11 +98,11 @@ namespace sfservice.APITests.Services
             });
 
             configurationMock.Setup(n => n["CSVFilesLocation"]);
-            csvServiceMoq.Setup(n=>n.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(It.IsAny<string>()))
+            csvServiceMoq.Setup(n=>n.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(It.IsAny<string>()))
                 .Returns(dungeonList);
 
             var service = new DungeonService(configurationMock.Object, csvServiceMoq.Object);
-            var results = service.GetDungeons();
+            var results = service.GetAllDungeonMonsters();
 
             Assert.True(results.Equals(dungeonList));
         }
@@ -112,8 +112,8 @@ namespace sfservice.APITests.Services
         {
             var csvServiceMoq = new Mock<ICsvService>();
             var configurationMock = new Mock<IConfiguration>();
-            var dungeonList = new List<Dungeon>();
-            dungeonList.Add(new Dungeon
+            var dungeonList = new List<DungeonMonster>();
+            dungeonList.Add(new DungeonMonster
             {
                 Class = "sorc",
                 Constitution = "123",
@@ -130,11 +130,11 @@ namespace sfservice.APITests.Services
             });
 
             configurationMock.Setup(n => n["CSVFilesLocation"]);
-            csvServiceMoq.Setup(n => n.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(It.IsAny<string>()))
+            csvServiceMoq.Setup(n => n.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(It.IsAny<string>()))
                 .Returns(dungeonList);
 
             var service = new DungeonService(configurationMock.Object, csvServiceMoq.Object);
-            var result = service.GetDungeon(1);
+            var result = service.GetDungeonMonstersById(1);
 
             Assert.True(result.Count == 0);
         }
@@ -145,8 +145,8 @@ namespace sfservice.APITests.Services
         {
             var csvServiceMoq = new Mock<ICsvService>();
             var configurationMock = new Mock<IConfiguration>();
-            var dungeonList = new List<Dungeon>();
-            var singleDungeonMonster = new Dungeon
+            var dungeonList = new List<DungeonMonster>();
+            var singleDungeonMonster = new DungeonMonster
             {
                 Class = "sorc",
                 Constitution = "123",
@@ -162,7 +162,7 @@ namespace sfservice.APITests.Services
                 Strength = "1"
             };
 
-            var singleDungeonMonster2 = new Dungeon
+            var singleDungeonMonster2 = new DungeonMonster
             {
                 Class = "sorc",
                 Constitution = "123",
@@ -178,17 +178,17 @@ namespace sfservice.APITests.Services
                 Strength = "1"
             };
 
-            var resultList = new List<Dungeon>{ singleDungeonMonster };
+            var resultList = new List<DungeonMonster>{ singleDungeonMonster };
 
             dungeonList.Add(singleDungeonMonster);
             dungeonList.Add(singleDungeonMonster2);
 
             configurationMock.Setup(n => n["CSVFilesLocation"]);
-            csvServiceMoq.Setup(n => n.ReadRecordsFromCSVFile<Dungeon, DungeonMap>(It.IsAny<string>()))
+            csvServiceMoq.Setup(n => n.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(It.IsAny<string>()))
                 .Returns(dungeonList);
 
             var service = new DungeonService(configurationMock.Object, csvServiceMoq.Object);
-            var result = service.GetDungeon(-1);
+            var result = service.GetDungeonMonstersById(-1);
 
             var dungeonEquals = result[0].Equals(resultList[0]);
 
