@@ -13,17 +13,19 @@ namespace sfservice.UI.API_Services
     {
         [Inject]
         private HttpClient _httpClient { get; set; }
+        private string baseUrl = "";
 
         public DungeonsApiService(HttpClient httpClient)
         {
             _httpClient = httpClient;
+            baseUrl = _httpClient.BaseAddress.AbsoluteUri;
         }
 
         public async Task<List<Dungeon>> Get()
         {
             try
             {
-                using (var response = await _httpClient.GetAsync("/dungeons"))
+                using (var response = await _httpClient.GetAsync($"{baseUrl}/dungeons"))
                 {
                     if (response.IsSuccessStatusCode)
                     {

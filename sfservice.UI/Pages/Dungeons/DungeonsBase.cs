@@ -18,7 +18,8 @@ namespace sfservice.UI.Pages.Dungeons
 
         protected override async Task OnInitializedAsync()
         {
-            DungeonsList = await DungeonsApiService.Get();
+            var dungeons = await DungeonsApiService.Get();
+            DungeonsList = dungeons;
         }
     }
 }
