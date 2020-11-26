@@ -29,16 +29,16 @@ namespace sfservice.Models.CSVMapperModels
 
             if (objDungeon.DungeonNumber == this.DungeonNumber
                 && objDungeon.Level == this.Level
-                && objDungeon.MonsterName.Equals(this.MonsterName)
+                && objDungeon.MonsterName == this.MonsterName
                 && objDungeon.MonsterLevel == this.MonsterLevel
-                && objDungeon.Class.Equals(this.Class)
-                && objDungeon.Strength.Equals(this.Strength)
-                && objDungeon.Dexterity.Equals(this.Dexterity)
-                && objDungeon.Intelligence.Equals(this.Intelligence)
-                && objDungeon.Constitution.Equals(this.Constitution)
-                && objDungeon.Luck.Equals(this.Luck)
-                && objDungeon.HitPoints.Equals(this.HitPoints)
-                && objDungeon.Experience.Equals(this.Experience)) return true;
+                && objDungeon.Class == this.Class
+                && objDungeon.Strength == this.Strength
+                && objDungeon.Dexterity == this.Dexterity
+                && objDungeon.Intelligence == this.Intelligence
+                && objDungeon.Constitution == this.Constitution
+                && objDungeon.Luck == this.Luck
+                && objDungeon.HitPoints == this.HitPoints
+                && objDungeon.Experience == this.Experience) return true;
 
             return false;
         }
