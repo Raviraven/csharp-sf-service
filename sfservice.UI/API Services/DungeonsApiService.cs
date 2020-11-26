@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text.Json;
+using sfservice.UI.Exceptions;
 
 namespace sfservice.UI.API_Services
 {
@@ -37,7 +38,7 @@ namespace sfservice.UI.API_Services
                     }
                     else
                     {
-                        return null;
+                        throw new UnsuccessfullApiStatusCodeException($"{(int) response.StatusCode} {response.ReasonPhrase}");
                     }
                 }
             }
@@ -63,7 +64,7 @@ namespace sfservice.UI.API_Services
                     }
                     else
                     {
-                        return null;
+                        throw new UnsuccessfullApiStatusCodeException($"{(int)response.StatusCode} {response.ReasonPhrase}");
                     }
                 }
             }
@@ -89,7 +90,7 @@ namespace sfservice.UI.API_Services
                     }
                     else
                     {
-                        return null;
+                        throw new UnsuccessfullApiStatusCodeException($"{(int)response.StatusCode} {response.ReasonPhrase}");
                     }
                 }
             }
