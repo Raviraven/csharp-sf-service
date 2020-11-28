@@ -12,45 +12,7 @@ using sfservice.API.Mappers;
 
 namespace sfservice.APITests.Services
 {
-    internal class ConfigurationTest : IConfiguration
-    {
-        private Dictionary<string, string> dictionary = new Dictionary<string, string> {
-            { "CSVFilesLocation", "" }
-        };
-
-        public string this[string key] {
-            get {
-                return dictionary[key];
-            }
-            set {
-                if (dictionary.ContainsKey(key))
-                {
-                    dictionary[key] = value;
-                }
-                else
-                {
-                    dictionary.Add(key, value);
-                }
-            }
-        }
-
-        public IEnumerable<IConfigurationSection> GetChildren()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IChangeToken GetReloadToken()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IConfigurationSection GetSection(string key)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class DungeonServiceTest
+   public class DungeonServiceTest
     {
         [Fact]
         public void GetDungeons_ReturnsListOfDungeons()
