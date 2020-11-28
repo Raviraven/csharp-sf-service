@@ -9,7 +9,7 @@ namespace sfservice.Models.CSVMapperModels
         public int DungeonNumber { get; set; }
         public int Level { get; set; }
         public string MonsterName { get; set; }
-        public int MonsterLevel { get; set; }
+        public string MonsterLevel { get; set; }
         public string Class { get; set; }
         public string Strength { get; set; }
         public string Dexterity { get; set; }

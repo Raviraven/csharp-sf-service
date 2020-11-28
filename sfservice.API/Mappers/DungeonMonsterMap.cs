@@ -12,7 +12,7 @@ namespace sfservice.API.Mappers
         public DungeonMonsterMap()
         {
             Map(n => n.DungeonNumber).Name("D");
-            Map(n => n.Level).Name("Level");
+            Map(n => n.Level).Name("DLevel");
             Map(n => n.MonsterName).Name("Opponent");
             Map(n => n.MonsterLevel).Name("Level");
             Map(n => n.Class).Name("Class");

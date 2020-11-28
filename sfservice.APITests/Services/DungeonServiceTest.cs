@@ -92,7 +92,7 @@ namespace sfservice.APITests.Services
                 Intelligence = "90",
                 Level = 12,
                 Luck = "0",
-                MonsterLevel = -3,
+                MonsterLevel = "-3",
                 MonsterName = "Some test name",
                 Strength = "1"
             });
@@ -124,7 +124,7 @@ namespace sfservice.APITests.Services
                 Intelligence = "90",
                 Level = 12,
                 Luck = "0",
-                MonsterLevel = -3,
+                MonsterLevel = "-3",
                 MonsterName = "Some test name",
                 Strength = "1"
             });
@@ -157,7 +157,7 @@ namespace sfservice.APITests.Services
                 Intelligence = "90",
                 Level = 12,
                 Luck = "0",
-                MonsterLevel = -3,
+                MonsterLevel = "-3",
                 MonsterName = "Some test name",
                 Strength = "1"
             };
@@ -173,7 +173,7 @@ namespace sfservice.APITests.Services
                 Intelligence = "90",
                 Level = 12,
                 Luck = "0",
-                MonsterLevel = -3,
+                MonsterLevel = "-3",
                 MonsterName = "Some test name",
                 Strength = "1"
             };
