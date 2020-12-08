@@ -11,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using sfservice.UI.API_Services;
-using sfservice.UI.Data;
 
 namespace sfservice.UI
 {

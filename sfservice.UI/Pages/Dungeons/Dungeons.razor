@@ -14,8 +14,23 @@
 else
 {
     <DungeonSelection Dungeons="@DungeonsList" />
+    <p>@counter</p>
 
-    <DungeonSelection Dungeons="@DungeonsList" />
+    <button @onclick="@(()=>AddDungeonSelection())">Add Section</button>
+    for (int i = 0; i < counter; i++)
+    {
+        <DungeonSelection Dungeons="@DungeonsList" />
+    }
 
-    <DungeonSelection Dungeons="@DungeonsList" />
+    @*<DungeonSelection Dungeons="@DungeonsList" />
+
+        <DungeonSelection Dungeons="@DungeonsList" />*@
+}
+
+@code {
+    int counter = 0;
+    public void AddDungeonSelection()
+    {
+        counter++;
+    }
 }
