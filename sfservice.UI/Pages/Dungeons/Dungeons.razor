@@ -14,23 +14,41 @@
 else
 {
     <DungeonSelection Dungeons="@DungeonsList" />
-    <p>@counter</p>
 
     <button @onclick="@(()=>AddDungeonSelection())">Add Section</button>
-    for (int i = 0; i < counter; i++)
+    <button @onclick="@(() => ClearDungeons())">Clear</button>
+    @*for (int i = 0; i < ViewDungeonsList.Count ; i++)
+        {
+            int dungeonNumber = i;
+            <DungeonSelection Dungeons="@DungeonsList" />
+            <button @onclick="@(()=>RemoveDungeon(dungeonNumber))">X</button>
+        }*@
+
+    foreach (var dungeonNumber in ViewDungeonsList)
     {
+    int local_d = dungeonNumber;
         <DungeonSelection Dungeons="@DungeonsList" />
+        <button @onclick="@(() => RemoveDungeon(local_d))">X</button>
     }
-
-    @*<DungeonSelection Dungeons="@DungeonsList" />
-
-        <DungeonSelection Dungeons="@DungeonsList" />*@
 }
 
 @code {
+    List<int> ViewDungeonsList = new List<int>() { };
+
     int counter = 0;
     public void AddDungeonSelection()
     {
         counter++;
+        ViewDungeonsList.Add(counter);
+    }
+
+    public void RemoveDungeon(int dungeonNumber)
+    {
+        ViewDungeonsList.RemoveAt(dungeonNumber);
+    }
+
+    public void ClearDungeons()
+    {
+        ViewDungeonsList.Clear();
     }
 }
