@@ -13,3 +13,4 @@ sfservice.API/obj/
 /sfservice.UITests/obj
 /sfservice.UITests/bin/
 /sfservice.UI/sfservice.UI.csproj.user
+/sfservice.UI/node_modules
