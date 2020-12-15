@@ -5,32 +5,38 @@
 @using sfservice.UI.Components.DungeonSelection
 @using sfservice.UI.Components.DungeonMonsterSelection
 
-<h3>Dungeons List</h3>
+<section class="dungeons">
+    <h3 class="deungeons__header">Dungeons List</h3>
 
-@if (DungeonsList == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <DungeonSelection Dungeons="@DungeonsList" />
-
-    <button @onclick="@(()=>AddDungeonSelection())">Add Section</button>
-    <button @onclick="@(() => ClearDungeons())">Clear</button>
-    @*for (int i = 0; i < ViewDungeonsList.Count ; i++)
-        {
-            int dungeonNumber = i;
-            <DungeonSelection Dungeons="@DungeonsList" />
-            <button @onclick="@(()=>RemoveDungeon(dungeonNumber))">X</button>
-        }*@
-
-    foreach (var dungeonNumber in ViewDungeonsList)
+    @if (DungeonsList == null)
     {
-    int local_d = dungeonNumber;
-        <DungeonSelection Dungeons="@DungeonsList" />
-        <button @onclick="@(() => RemoveDungeon(local_d))">X</button>
+        <p><em>Loading...</em></p>
     }
-}
+    else
+    {
+        <div class="dungeons__buttons">
+            <button class="" @onclick="@(()=>AddDungeonSelection())">Add Section</button>
+            <button class="" @onclick="@(() => ClearDungeons())">Clear</button>
+        </div>
+
+        <div class="dungeons__content">
+            <DungeonSelection Dungeons="@DungeonsList" />
+
+            @foreach (var dungeonNumber in ViewDungeonsList)
+            {
+            int local_d = dungeonNumber;
+                <DungeonSelection Dungeons="@DungeonsList" />
+                <button @onclick="@(() => RemoveDungeon(local_d))">X</button>
+            }
+        </div>
+    }
+</section>
+
+<style>
+    .dungeons {
+
+    }
+</style>
 
 @code {
     List<int> ViewDungeonsList = new List<int>() { };
