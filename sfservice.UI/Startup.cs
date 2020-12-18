@@ -30,8 +30,8 @@ namespace sfservice.UI
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddTransient<IDungeonsApiService, DungeonsApiService>();
-            services.AddHttpClient<IDungeonsApiService, DungeonsApiService>(n=>n.BaseAddress = new Uri("http://localhost/sfservice.API"));
+            services.AddHttpClient<IDungeonsApiService, DungeonsApiService>(n => n.BaseAddress = new Uri("http://localhost/sfservice.API"));
+            //services.AddTransient<IDungeonsApiService, DungeonsApiService>();
 
             //services.AddSingleton<WeatherForecastService>();
         }
