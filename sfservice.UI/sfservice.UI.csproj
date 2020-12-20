@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Resources\Components\DungeonMonsterDetails.en.resx" />
+    <EmbeddedResource Remove="Resources\Components\DungeonMonsterDetails.pl.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
   </ItemGroup>
 
@@ -16,6 +21,13 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Components\DungeonMonsterDetails\DungeonMonsterDetails.pl.resx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Components\DungeonMonsterDetails\DungeonMonsterDetails.en.resx" />
   </ItemGroup>
 
 </Project>

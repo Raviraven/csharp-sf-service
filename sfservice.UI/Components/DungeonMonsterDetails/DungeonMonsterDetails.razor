@@ -1,20 +1,36 @@
 ﻿@inherits DungeonMonsterDetailsBase
 
+@inject Microsoft.Extensions.Localization.IStringLocalizer<DungeonMonsterDetails> localizer
+@using sfservice.UI.Components.LabelValueComponent
+@using sfservice.UI.Components.LocalizationDropDown
 
-@if (DungeonMonster != null)
-{
-    <p><b>@DungeonMonster.MonsterName</b></p>
-    <ul>
-        <li>@DungeonMonster.MonsterName</li>
-        <li>@DungeonMonster.Level</li>
-        <li>@DungeonMonster.MonsterLevel</li>
-        <li>@DungeonMonster.Class</li>
-        <li>@DungeonMonster.Strength</li>
-        <li>@DungeonMonster.Dexterity</li>
-        <li>@DungeonMonster.Intelligence</li>
-        <li>@DungeonMonster.Constitution</li>
-        <li>@DungeonMonster.Luck</li>
-        <li>@DungeonMonster.HitPoints</li>
-        <li>@DungeonMonster.Experience</li>
-    </ul>
-}
+
+<LocalizationDropDown />
+
+<div>
+    @if (DungeonMonster != null)
+    {
+        <p>@DungeonMonster.MonsterName</p>
+
+        <div>
+            <p>@localizer[nameof(DungeonMonster.MonsterName)]</p>
+        </div>
+
+        <LabelValueComponent localizerType="DungeonMonsterDetails" Name="@nameof(DungeonMonster.MonsterName)" 
+                             obj="DungeonMonster.MonsterName" />
+
+        <ul>
+            <li>@DungeonMonster.MonsterName</li>
+            <li>@DungeonMonster.Level</li>
+            <li>@DungeonMonster.MonsterLevel</li>
+            <li>@DungeonMonster.Class</li>
+            <li>@DungeonMonster.Strength</li>
+            <li>@DungeonMonster.Dexterity</li>
+            <li>@DungeonMonster.Intelligence</li>
+            <li>@DungeonMonster.Constitution</li>
+            <li>@DungeonMonster.Luck</li>
+            <li>@DungeonMonster.HitPoints</li>
+            <li>@DungeonMonster.Experience</li>
+        </ul>
+    }
+</div>

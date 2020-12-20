@@ -1,0 +1,18 @@
+﻿@typeparam localizerType
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<localizerType> localizer
+
+
+<div>
+    <label>@localizer[Name]</label>
+    <p>@obj.ToString()</p>
+</div>
+
+
+@code{
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public object obj { get; set; }
+}
