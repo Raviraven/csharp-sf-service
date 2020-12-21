@@ -35,6 +35,7 @@ namespace sfservice.UI
             services.AddRazorPages()
                 .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix);
             services.AddServerSideBlazor();
+            services.AddControllers();
 
             services.AddHttpClient<IDungeonsApiService, DungeonsApiService>(n => n.BaseAddress = new Uri("http://localhost/sfservice.API"));
             //services.AddTransient<IDungeonsApiService, DungeonsApiService>();
@@ -56,7 +57,12 @@ namespace sfservice.UI
             { 
                 DefaultRequestCulture = new RequestCulture("pl"),
                 SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
+                SupportedUICultures = supportedCultures,
+
+                RequestCultureProviders = new List<IRequestCultureProvider> { 
+                    new QueryStringRequestCultureProvider(),
+                    new CookieRequestCultureProvider()
+                }
             };
             app.UseRequestLocalization(options);
             
@@ -80,8 +86,14 @@ namespace sfservice.UI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
+
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapControllerRoute(
+                    name: "culture-route",
+                    pattern: "{culture=pl}/{page}"
+                );
             });
         }
     }
