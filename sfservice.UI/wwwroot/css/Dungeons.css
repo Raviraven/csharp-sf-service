@@ -1,0 +1,17 @@
+.dungeon {
+  background: lightgray;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 1rem; }
+  .dungeon__monsterSelection {
+    margin-top: 1rem; }
+
+.monster {
+  margin-top: 1rem; }
+  .monster__details {
+    display: grid;
+    grid-template-columns: 128px 1fr; }
+    .monster__details--label {
+      font-weight: bold; }
+  .monster__details > p {
+    margin-bottom: 0; }

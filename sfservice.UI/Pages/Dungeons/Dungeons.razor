@@ -3,7 +3,6 @@
 @inherits DungeonsBase
 
 @using sfservice.UI.Components.DungeonSelection
-@using sfservice.UI.Components.DungeonMonsterSelection
 
 <section class="dungeons">
     <h3 class="deungeons__header">Dungeons List</h3>
@@ -15,8 +14,9 @@
     else
     {
         <div class="dungeons__buttons">
-            <button class="" @onclick="@(()=>AddDungeonSelection())">Add Section</button>
-            <button class="" @onclick="@(() => ClearDungeons())">Clear</button>
+            <button class="btn btn-primary" @onclick="@(()=>AddDungeonSelection())">Add Section</button>
+            <button class="btn btn-secondary" @onclick="@(() => ClearDungeons())">Clear</button>
+            <button class="btn btn-danger" @onclick="@(() => RemoveLastDungeon())">Remove last</button>
         </div>
 
         <div class="dungeons__content">
@@ -24,19 +24,11 @@
 
             @foreach (var dungeonNumber in ViewDungeonsList)
             {
-            int local_d = dungeonNumber;
                 <DungeonSelection Dungeons="@DungeonsList" />
-                <button @onclick="@(() => RemoveDungeon(local_d))">X</button>
             }
         </div>
     }
 </section>
-
-<style>
-    .dungeons {
-
-    }
-</style>
 
 @code {
     List<int> ViewDungeonsList = new List<int>() { };
@@ -48,9 +40,10 @@
         ViewDungeonsList.Add(counter);
     }
 
-    public void RemoveDungeon(int dungeonNumber)
+    public void RemoveLastDungeon()
     {
-        ViewDungeonsList.RemoveAt(dungeonNumber);
+        if(ViewDungeonsList.Count > 0 )
+            ViewDungeonsList.RemoveAt(ViewDungeonsList.Count-1);
     }
 
     public void ClearDungeons()

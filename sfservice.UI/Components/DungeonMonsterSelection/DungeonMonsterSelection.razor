@@ -2,11 +2,11 @@
 
 @using sfservice.UI.Components.DungeonMonsterDetails
 
-<div>
+<div class="dungeon__monsterSelection">
     @if (DungeonMonsters != null)
     { 
         <EditForm EditContext="EditContext">
-            <InputSelect @bind-Value="@MonsterNumber" @onclick="(e => SetMonsterDetails())">
+            <InputSelect @bind-Value="@MonsterNumber" @onclick="(e => SetMonsterDetails())" class="form-control">
                 <option></option>
                 @foreach(var monster in DungeonMonsters)
                 {

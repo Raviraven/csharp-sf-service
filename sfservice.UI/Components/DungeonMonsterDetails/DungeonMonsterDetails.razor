@@ -1,36 +1,31 @@
 ﻿@inherits DungeonMonsterDetailsBase
 
 @inject Microsoft.Extensions.Localization.IStringLocalizer<DungeonMonsterDetails> localizer
-@using sfservice.UI.Components.LabelValueComponent
-@using sfservice.UI.Components.LocalizationDropDown
 
-
-<LocalizationDropDown />
-
-<div>
+<div class="monster">
     @if (DungeonMonster != null)
     {
-        <p>@DungeonMonster.MonsterName</p>
+        
+        <div class="monster__details">
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.MonsterLevel)]:</p>
+            <p>@DungeonMonster.MonsterLevel</p>
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.Class)]:</p>
+            <p>@DungeonMonster.Class</p>
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.Strength)]:</p>
+            <p>@DungeonMonster.Strength</p>
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.Dexterity)]:</p>
+            <p>@DungeonMonster.Dexterity</p>
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.Intelligence)]:</p>
+            <p>@DungeonMonster.Intelligence</p>
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.Constitution)]:</p>
+            <p>@DungeonMonster.Constitution</p>
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.Luck)]:</p>
+            <p>@DungeonMonster.Luck</p>
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.HitPoints)]:</p>
+            <p>@DungeonMonster.HitPoints</p>
+            <p class="monster__details--label">@localizer[nameof(DungeonMonster.Experience)]:</p>
+            <p>@DungeonMonster.Experience</p>
 
-        <div>
-            <p>@localizer[nameof(DungeonMonster.MonsterName)]</p>
         </div>
-
-        <LabelValueComponent localizerType="DungeonMonsterDetails" Name="@nameof(DungeonMonster.MonsterName)" 
-                             obj="DungeonMonster.MonsterName" />
-
-        <ul>
-            <li>@DungeonMonster.MonsterName</li>
-            <li>@DungeonMonster.Level</li>
-            <li>@DungeonMonster.MonsterLevel</li>
-            <li>@DungeonMonster.Class</li>
-            <li>@DungeonMonster.Strength</li>
-            <li>@DungeonMonster.Dexterity</li>
-            <li>@DungeonMonster.Intelligence</li>
-            <li>@DungeonMonster.Constitution</li>
-            <li>@DungeonMonster.Luck</li>
-            <li>@DungeonMonster.HitPoints</li>
-            <li>@DungeonMonster.Experience</li>
-        </ul>
     }
 </div>

@@ -2,9 +2,9 @@
 
 @using sfservice.UI.Components.DungeonMonsterSelection
 
-<div>
+<div class="dungeon">
     <EditForm EditContext="EditContext">
-        <InputSelect @bind-Value="@ChosenDungeonId">
+        <InputSelect @bind-Value="@ChosenDungeonId" class="form-control">
             <option value="0"></option>
             @foreach (var dungeon in Dungeons)
             {
@@ -17,7 +17,6 @@
 
     @if (!string.IsNullOrEmpty(ChosenDungeonId))
     {
-        <p>Chosen dungeon: @ChosenDungeonId</p>
         <DungeonMonsterSelection DungeonNumber="@ChosenDungeonId" />
     }
 
