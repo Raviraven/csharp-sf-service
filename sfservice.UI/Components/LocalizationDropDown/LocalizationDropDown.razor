@@ -1,11 +1,8 @@
-﻿@using System.Globalization
-@using Microsoft.AspNetCore.Localization
-@using Microsoft.AspNetCore.Http
-@inject IStringLocalizer<LocalizationDropDown> localizer
+﻿@inject IStringLocalizer<LocalizationDropDown> localizer
 @inject NavigationManager NavigationManager
 
-<select @onchange="OnSelected">
-    <option>Select...</option>
+<select @onchange="OnSelected" class="form-control localization-dropdown">
+    <option>Language</option>
     <option value="en">English</option>
     <option value="pl">Polish</option>
 </select> 
@@ -13,21 +10,13 @@
 @code {
     private void OnSelected(ChangeEventArgs e)
     {
-        //var current = CultureInfo.CurrentCulture;
         var selectedCulture = e.Value.ToString();
-        //CultureInfo.CurrentCulture = CultureInfo.GetCultures(CultureTypes.AllCultures)
-        //    .First(c => c.Name == selectedCulture);
-        //var currentAfter = CultureInfo.CurrentCulture;
-
-        //StateHasChanged();
-
         var culture = (string)e.Value;
         var uri = new Uri(NavigationManager.Uri)
             .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
         var query = $"?culture={Uri.EscapeDataString(culture)}&" +
             $"redirectUri={Uri.EscapeDataString(uri)}";
 
-        NavigationManager.NavigateTo("/Home/SetCulture" + query, true);
-
+        NavigationManager.NavigateTo(NavigationManager.BaseUri + "Home/SetCulture" + query, true);
     }
 }

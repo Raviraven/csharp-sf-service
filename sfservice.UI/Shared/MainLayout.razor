@@ -1,11 +1,15 @@
 ﻿@inherits LayoutComponentBase
 
+@using sfservice.UI.Components.LocalizationDropDown
+
 <div class="sidebar">
     <NavMenu />
 </div>
 
 <div class="main">
+
     <div class="top-row px-4">
+        <LocalizationDropDown />
         <a href="About">About</a>
     </div>
 
