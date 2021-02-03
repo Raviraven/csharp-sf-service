@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.API.UnitTests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.UI.UnitTests", "sfservice.UI.UnitTests\sfservice.UI.UnitTests.csproj", "{D8AE72C5-9DC5-4FCD-AB9B-E6FD98733528}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.API.IntegrationTests", "sfservice.API.IntegrationTests\sfservice.API.IntegrationTests.csproj", "{BD3329B2-7C14-4911-BF59-079FA17C24E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{D8AE72C5-9DC5-4FCD-AB9B-E6FD98733528}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8AE72C5-9DC5-4FCD-AB9B-E6FD98733528}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8AE72C5-9DC5-4FCD-AB9B-E6FD98733528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3329B2-7C14-4911-BF59-079FA17C24E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3329B2-7C14-4911-BF59-079FA17C24E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3329B2-7C14-4911-BF59-079FA17C24E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3329B2-7C14-4911-BF59-079FA17C24E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{A6499D82-4F82-4CE2-93F6-2620C970F9CA} = {A5758E1E-8759-4649-BFC3-503240594698}
 		{0B77F893-0444-48C8-904D-3526566D3C77} = {C2D89D81-DD23-4B4F-819E-89078222A64A}
 		{D8AE72C5-9DC5-4FCD-AB9B-E6FD98733528} = {C2D89D81-DD23-4B4F-819E-89078222A64A}
+		{BD3329B2-7C14-4911-BF59-079FA17C24E8} = {C2D89D81-DD23-4B4F-819E-89078222A64A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4DA6D02-91C3-41D0-8B63-A8E09DC6F8A6}

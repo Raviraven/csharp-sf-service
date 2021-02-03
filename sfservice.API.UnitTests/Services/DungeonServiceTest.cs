@@ -9,6 +9,8 @@ using Xunit;
 using Moq;
 using sfservice.Domain.CSVMapperModels;
 using sfservice.API.Mappers;
+using FluentAssertions;
+using Bogus;
 
 namespace sfservice.APITests.Services
 {
@@ -42,22 +44,21 @@ namespace sfservice.APITests.Services
         {
             var csvServiceMoq = new Mock<ICsvService>();
             var configurationMock = new Mock<IConfiguration>();
-            var dungeonList = new List<DungeonMonster>();
-            dungeonList.Add(new DungeonMonster
-            {
-                Class = "sorc",
-                Constitution = "123",
-                Dexterity = "12",
-                DungeonNumber = -1,
-                Experience = "9020",
-                HitPoints = "8723",
-                Intelligence = "90",
-                Level = 12,
-                Luck = "0",
-                MonsterLevel = "-3",
-                MonsterName = "Some test name",
-                Strength = "1"
-            });
+
+            var dungeonList = new Faker<DungeonMonster>()
+                .RuleFor(n=>n.Class, b=>b.Random.String(10))
+                .RuleFor(n=>n.Constitution, b=>b.Random.String())
+                .RuleFor(n=>n.Dexterity, b=>b.Random.String())
+                .RuleFor(n=>n.DungeonNumber, b=>b.Random.Int())
+                .RuleFor(n=>n.Experience, b=>b.Random.String())
+                .RuleFor(n=>n.HitPoints, b=>b.Random.String())
+                .RuleFor(n=>n.Intelligence, b=>b.Random.String())
+                .RuleFor(n=>n.Level, b=>b.Random.Int())
+                .RuleFor(n=>n.Luck, b=>b.Random.String())
+                .RuleFor(n=>n.MonsterLevel, b=>b.Random.String())
+                .RuleFor(n=>n.MonsterName, b=>b.Random.String())
+                .RuleFor(n=>n.Strength, b=>b.Random.String())
+                .Generate(10);
 
             configurationMock.Setup(n => n["CSVFilesLocation"]);
             csvServiceMoq.Setup(n=>n.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(It.IsAny<string>()))
@@ -66,7 +67,8 @@ namespace sfservice.APITests.Services
             var service = new DungeonService(configurationMock.Object, csvServiceMoq.Object);
             var results = service.GetAllDungeonMonsters();
 
-            Assert.True(results.Equals(dungeonList));
+            results.Should()
+                .BeEquivalentTo(dungeonList);
         }
 
         [Fact]
@@ -74,22 +76,21 @@ namespace sfservice.APITests.Services
         {
             var csvServiceMoq = new Mock<ICsvService>();
             var configurationMock = new Mock<IConfiguration>();
-            var dungeonList = new List<DungeonMonster>();
-            dungeonList.Add(new DungeonMonster
-            {
-                Class = "sorc",
-                Constitution = "123",
-                Dexterity = "12",
-                DungeonNumber = -1,
-                Experience = "9020",
-                HitPoints = "8723",
-                Intelligence = "90",
-                Level = 12,
-                Luck = "0",
-                MonsterLevel = "-3",
-                MonsterName = "Some test name",
-                Strength = "1"
-            });
+
+            var dungeonList = new Faker<DungeonMonster>()
+                .RuleFor(n => n.Class, b => b.Random.String(10))
+                .RuleFor(n => n.Constitution, b => b.Random.String())
+                .RuleFor(n => n.Dexterity, b => b.Random.String())
+                .RuleFor(n => n.DungeonNumber, () => -1)
+                .RuleFor(n => n.Experience, b => b.Random.String())
+                .RuleFor(n => n.HitPoints, b => b.Random.String())
+                .RuleFor(n => n.Intelligence, b => b.Random.String())
+                .RuleFor(n => n.Level, b => b.Random.Int())
+                .RuleFor(n => n.Luck, b => b.Random.String())
+                .RuleFor(n => n.MonsterLevel, b => b.Random.String())
+                .RuleFor(n => n.MonsterName, b => b.Random.String())
+                .RuleFor(n => n.Strength, b => b.Random.String())
+                .Generate(10);
 
             configurationMock.Setup(n => n["CSVFilesLocation"]);
             csvServiceMoq.Setup(n => n.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(It.IsAny<string>()))
@@ -98,7 +99,8 @@ namespace sfservice.APITests.Services
             var service = new DungeonService(configurationMock.Object, csvServiceMoq.Object);
             var result = service.GetDungeonMonstersById(1);
 
-            Assert.True(result.Count == 0);
+            result.Should().BeEmpty();
+
         }
 
 
@@ -107,43 +109,41 @@ namespace sfservice.APITests.Services
         {
             var csvServiceMoq = new Mock<ICsvService>();
             var configurationMock = new Mock<IConfiguration>();
+
+            var invalidDungeonsList = new Faker<DungeonMonster>()
+                .RuleFor(n => n.Class, b => b.Random.String(10))
+                .RuleFor(n => n.Constitution, b => b.Random.String())
+                .RuleFor(n => n.Dexterity, b => b.Random.String())
+                .RuleFor(n => n.DungeonNumber, b=>b.Random.Int(min: 1))
+                .RuleFor(n => n.Experience, b => b.Random.String())
+                .RuleFor(n => n.HitPoints, b => b.Random.String())
+                .RuleFor(n => n.Intelligence, b => b.Random.String())
+                .RuleFor(n => n.Level, b => b.Random.Int())
+                .RuleFor(n => n.Luck, b => b.Random.String())
+                .RuleFor(n => n.MonsterLevel, b => b.Random.String())
+                .RuleFor(n => n.MonsterName, b => b.Random.String())
+                .RuleFor(n => n.Strength, b => b.Random.String())
+                .Generate(10);
+
+            var validDungeonsList = new Faker<DungeonMonster>()
+                .RuleFor(n => n.Class, b => b.Random.String(10))
+                .RuleFor(n => n.Constitution, b => b.Random.String())
+                .RuleFor(n => n.Dexterity, b => b.Random.String())
+                .RuleFor(n => n.DungeonNumber, () => -1)
+                .RuleFor(n => n.Experience, b => b.Random.String())
+                .RuleFor(n => n.HitPoints, b => b.Random.String())
+                .RuleFor(n => n.Intelligence, b => b.Random.String())
+                .RuleFor(n => n.Level, b => b.Random.Int())
+                .RuleFor(n => n.Luck, b => b.Random.String())
+                .RuleFor(n => n.MonsterLevel, b => b.Random.String())
+                .RuleFor(n => n.MonsterName, b => b.Random.String())
+                .RuleFor(n => n.Strength, b => b.Random.String())
+                .Generate(10);
+
             var dungeonList = new List<DungeonMonster>();
-            var singleDungeonMonster = new DungeonMonster
-            {
-                Class = "sorc",
-                Constitution = "123",
-                Dexterity = "12",
-                DungeonNumber = -1,
-                Experience = "9020",
-                HitPoints = "8723",
-                Intelligence = "90",
-                Level = 12,
-                Luck = "0",
-                MonsterLevel = "-3",
-                MonsterName = "Some test name",
-                Strength = "1"
-            };
+            dungeonList.AddRange(invalidDungeonsList);
+            dungeonList.AddRange(validDungeonsList);
 
-            var singleDungeonMonster2 = new DungeonMonster
-            {
-                Class = "sorc",
-                Constitution = "123",
-                Dexterity = "12",
-                DungeonNumber = 3,
-                Experience = "9020",
-                HitPoints = "8723",
-                Intelligence = "90",
-                Level = 12,
-                Luck = "0",
-                MonsterLevel = "-3",
-                MonsterName = "Some test name",
-                Strength = "1"
-            };
-
-            var resultList = new List<DungeonMonster>{ singleDungeonMonster };
-
-            dungeonList.Add(singleDungeonMonster);
-            dungeonList.Add(singleDungeonMonster2);
 
             configurationMock.Setup(n => n["CSVFilesLocation"]);
             csvServiceMoq.Setup(n => n.ReadRecordsFromCSVFile<DungeonMonster, DungeonMonsterMap>(It.IsAny<string>()))
@@ -152,9 +152,7 @@ namespace sfservice.APITests.Services
             var service = new DungeonService(configurationMock.Object, csvServiceMoq.Object);
             var result = service.GetDungeonMonstersById(-1);
 
-            var dungeonEquals = result[0].Equals(resultList[0]);
-
-            Assert.True(dungeonEquals);
+            result.Should().BeEquivalentTo(validDungeonsList);
         }
     }
 }

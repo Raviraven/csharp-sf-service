@@ -18,3 +18,5 @@ sfservice.API/obj/
 /sfservice.Application/bin/
 /sfservice.Infrastructure/obj/
 /sfservice.Infrastructure/bin/
+/sfservice.API.IntegrationTests/bin/
+/sfservice.API.IntegrationTests/obj/
