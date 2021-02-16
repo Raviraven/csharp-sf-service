@@ -28,7 +28,8 @@ export class DungeonService {
   }
 
   loadAllDungeons(){
-    const dungeonsUrl = "https://localhost:44339/dungeons";
+    console.log("ajsdhflkajshd");
+    const dungeonsUrl = "http://localhost/sfservice.API/dungeons";
 
     return this.http.get<Dungeon[]>(dungeonsUrl)
       .subscribe(data => {

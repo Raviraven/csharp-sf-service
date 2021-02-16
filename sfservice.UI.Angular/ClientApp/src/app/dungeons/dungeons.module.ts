@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DungeonsAppComponent } from './dungeons-app.component';
-import { Routes } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 const routes: Routes = [
   {path: '', component: DungeonsAppComponent,
@@ -14,7 +14,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [DungeonsAppComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class DungeonsModule { }

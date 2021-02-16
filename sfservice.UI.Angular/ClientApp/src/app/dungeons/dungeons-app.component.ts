@@ -22,7 +22,9 @@ export class DungeonsAppComponent implements OnInit {
     private dungeonService: DungeonService) { }
 
   ngOnInit(): void {
+    this.dungeonService.loadAllDungeons();
     this.dungeonsList = this.dungeonService.dungeons;
+    console.log(this.dungeonsList);
   }
 
 }
