@@ -29,7 +29,7 @@ export class DungeonService {
 
   loadAllDungeons(){
     console.log("ajsdhflkajshd");
-    const dungeonsUrl = "http://localhost/sfservice.API/dungeons";
+    const dungeonsUrl = "/api/dungeons";
 
     return this.http.get<Dungeon[]>(dungeonsUrl)
       .subscribe(data => {
