@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\sfservice.Models\sfservice.Models.csproj" />
+    <ProjectReference Include="..\sfservice.Models\sfservice.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

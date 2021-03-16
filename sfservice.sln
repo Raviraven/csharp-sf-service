@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.API", "sfservice.API\sfservice.API.csproj", "{76935AFA-DA05-4651-A26A-D03ACDDC2494}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.Models", "sfservice.Models\sfservice.Models.csproj", "{F484C04C-0179-4CE5-8F34-4AD893C67A3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.Domain", "sfservice.Models\sfservice.Domain.csproj", "{F484C04C-0179-4CE5-8F34-4AD893C67A3E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C2D89D81-DD23-4B4F-819E-89078222A64A}"
 EndProject
@@ -15,7 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.UI", "sfservice.U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.UITests", "sfservice.UITests\sfservice.UITests.csproj", "{C20EFC6E-F58F-41BA-83AD-A42C7EF23668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.UI.Angular", "sfservice.UI.Angular\sfservice.UI.Angular.csproj", "{6042A1C3-F459-4E38-8693-FD39A5D9DFF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sfservice.UI.Angular", "sfservice.UI.Angular\sfservice.UI.Angular.csproj", "{6042A1C3-F459-4E38-8693-FD39A5D9DFF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A5758E1E-8759-4649-BFC3-503240594698}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.Application", "sfservice.Application\sfservice.Application.csproj", "{32076AC5-37BD-488A-80B1-A84D2440117F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfservice.Infrastructure", "sfservice.Infrastructure\sfservice.Infrastructure.csproj", "{A6499D82-4F82-4CE2-93F6-2620C970F9CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,13 +53,27 @@ Global
 		{6042A1C3-F459-4E38-8693-FD39A5D9DFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6042A1C3-F459-4E38-8693-FD39A5D9DFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6042A1C3-F459-4E38-8693-FD39A5D9DFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32076AC5-37BD-488A-80B1-A84D2440117F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32076AC5-37BD-488A-80B1-A84D2440117F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32076AC5-37BD-488A-80B1-A84D2440117F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32076AC5-37BD-488A-80B1-A84D2440117F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6499D82-4F82-4CE2-93F6-2620C970F9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6499D82-4F82-4CE2-93F6-2620C970F9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6499D82-4F82-4CE2-93F6-2620C970F9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6499D82-4F82-4CE2-93F6-2620C970F9CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{76935AFA-DA05-4651-A26A-D03ACDDC2494} = {A5758E1E-8759-4649-BFC3-503240594698}
+		{F484C04C-0179-4CE5-8F34-4AD893C67A3E} = {A5758E1E-8759-4649-BFC3-503240594698}
 		{5F3CB6F3-4806-4DEC-BE01-470880179520} = {C2D89D81-DD23-4B4F-819E-89078222A64A}
+		{0CC1A2A0-3CAC-4965-8F68-6E7D269CC820} = {A5758E1E-8759-4649-BFC3-503240594698}
 		{C20EFC6E-F58F-41BA-83AD-A42C7EF23668} = {C2D89D81-DD23-4B4F-819E-89078222A64A}
+		{6042A1C3-F459-4E38-8693-FD39A5D9DFF4} = {A5758E1E-8759-4649-BFC3-503240594698}
+		{32076AC5-37BD-488A-80B1-A84D2440117F} = {A5758E1E-8759-4649-BFC3-503240594698}
+		{A6499D82-4F82-4CE2-93F6-2620C970F9CA} = {A5758E1E-8759-4649-BFC3-503240594698}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4DA6D02-91C3-41D0-8B63-A8E09DC6F8A6}

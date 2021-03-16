@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\sfservice.Models\sfservice.Models.csproj" />
+    <ProjectReference Include="..\sfservice.Models\sfservice.Domain.csproj" />
     <ProjectReference Include="..\sfservice.UI\sfservice.UI.csproj" />
   </ItemGroup>
 
