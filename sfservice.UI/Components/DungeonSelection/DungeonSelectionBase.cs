@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using sfservice.Models.CSVMapperModels;
+using sfservice.Domain.CSVMapperModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

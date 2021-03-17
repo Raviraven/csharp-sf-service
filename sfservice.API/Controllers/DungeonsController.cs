@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using sfservice.API.Services;
-using sfservice.Models.CSVMapperModels;
+using sfservice.Domain.CSVMapperModels;
 
 namespace sfservice.API.Controllers
 {

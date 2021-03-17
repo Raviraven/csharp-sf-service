@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using Xunit;
 using Moq;
-using sfservice.Models.CSVMapperModels;
+using sfservice.Domain.CSVMapperModels;
 using sfservice.API.Mappers;
 
 namespace sfservice.APITests.Services

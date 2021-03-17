@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace sfservice.Models.CSVMapperModels
+namespace sfservice.Domain.CSVMapperModels
 {
     public class DungeonMonster
     {

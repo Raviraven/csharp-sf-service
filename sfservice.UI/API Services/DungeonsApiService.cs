@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
-using sfservice.Models.CSVMapperModels;
+using sfservice.Domain.CSVMapperModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text.Json;
-using sfservice.UI.Exceptions;
+using sfservice.Domain.Exceptions;
 
 namespace sfservice.UI.API_Services
 {

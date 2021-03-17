@@ -4,13 +4,13 @@ using System.Text;
 using Xunit;
 using Moq;
 using System.Net.Http;
-using sfservice.Models.CSVMapperModels;
+using sfservice.Domain.CSVMapperModels;
 using System.Text.Json;
 using System.Threading.Tasks;
 using sfservice.UI.API_Services;
 using Moq.Protected;
 using System.Threading;
-using sfservice.UI.Exceptions;
+using sfservice.Domain.Exceptions;
 
 namespace sfservice.UITests.API_Services
 {

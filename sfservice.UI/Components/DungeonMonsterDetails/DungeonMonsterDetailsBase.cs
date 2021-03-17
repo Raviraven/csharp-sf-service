@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using sfservice.Models.CSVMapperModels;
+using sfservice.Domain.CSVMapperModels;
 using sfservice.UI.API_Services;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using sfservice.Models.CSVMapperModels;
+﻿using sfservice.Domain.CSVMapperModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
